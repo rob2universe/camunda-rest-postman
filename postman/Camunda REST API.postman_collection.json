@@ -1,0 +1,620 @@
+{
+	"info": {
+		"_postman_id": "70f09947-8ad9-4d13-8c95-90e2c3398032",
+		"name": "Camunda REST API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Deployment",
+			"item": [
+				{
+					"name": "List Deployments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_rest_url}}/deployment",
+							"host": [
+								"{{server_rest_url}}"
+							],
+							"path": [
+								"deployment"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/7.11/reference/rest/deployment/get-query/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Deployment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_rest_url}}/deployment/4570ad49-e8ce-11e9-9542-9eb6d0894ce9",
+							"host": [
+								"{{server_rest_url}}"
+							],
+							"path": [
+								"deployment",
+								"4570ad49-e8ce-11e9-9542-9eb6d0894ce9"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/7.11/reference/rest/deployment/get/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Deployment resources",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/deployment/4570ad49-e8ce-11e9-9542-9eb6d0894ce9/resources",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"deployment",
+								"4570ad49-e8ce-11e9-9542-9eb6d0894ce9",
+								"resources"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/7.11/reference/rest/deployment/get-resources/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Deployment resource by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_rest_url}}/deployment/24b5de69-e8c9-11e9-9542-9eb6d0894ce9/resources/24b6057b-e8c9-11e9-9542-9eb6d0894ce9",
+							"host": [
+								"{{server_rest_url}}"
+							],
+							"path": [
+								"deployment",
+								"24b5de69-e8c9-11e9-9542-9eb6d0894ce9",
+								"resources",
+								"24b6057b-e8c9-11e9-9542-9eb6d0894ce9"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/7.11/reference/rest/deployment/get-query/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Deployment resource data by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_rest_url}}/deployment/24b5de69-e8c9-11e9-9542-9eb6d0894ce9/resources/24b6057b-e8c9-11e9-9542-9eb6d0894ce9/data",
+							"host": [
+								"{{server_rest_url}}"
+							],
+							"path": [
+								"deployment",
+								"24b5de69-e8c9-11e9-9542-9eb6d0894ce9",
+								"resources",
+								"24b6057b-e8c9-11e9-9542-9eb6d0894ce9",
+								"data"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/7.11/reference/rest/deployment/get-resource-binary/"
+					},
+					"response": []
+				},
+				{
+					"name": "Count Deployments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_rest_url}}/deployment/count",
+							"host": [
+								"{{server_rest_url}}"
+							],
+							"path": [
+								"deployment",
+								"count"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/7.6/reference/rest/deployment/get-query-count/"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Deployment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "upload",
+									"contentType": "`",
+									"type": "file",
+									"src": "/C:/development/git/camunda-boot/src/main/resources/RestExample_1.bpmn"
+								},
+								{
+									"key": "deployment-name",
+									"value": "RestExample",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server_rest_url}}/deployment/create",
+							"host": [
+								"{{server_rest_url}}"
+							],
+							"path": [
+								"deployment",
+								"create"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/7.11/reference/rest/deployment/post-deployment/"
+					},
+					"response": []
+				},
+				{
+					"name": "Redeploy Deployment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{server_rest_url}}/deployment/e5c6d1c8-e8ce-11e9-bfce-9eb6d0894ce9/redeploy",
+							"host": [
+								"{{server_rest_url}}"
+							],
+							"path": [
+								"deployment",
+								"e5c6d1c8-e8ce-11e9-bfce-9eb6d0894ce9",
+								"redeploy"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/7.11/reference/rest/deployment/post-redeploy-deployment/"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Deployment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server_rest_url}}/deployment/24b5de69-e8c9-11e9-9542-9eb6d0894ce9",
+							"host": [
+								"{{server_rest_url}}"
+							],
+							"path": [
+								"deployment",
+								"24b5de69-e8c9-11e9-9542-9eb6d0894ce9"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/7.11/reference/rest/deployment/delete-deployment/"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "Activity Instances, unfinished",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/history/activity-instance?unfinished=true",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"history",
+								"activity-instance"
+							],
+							"query": [
+								{
+									"key": "unfinished",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "external-task",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/external-task",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"external-task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List tasks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/task",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List tasks for process definition",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/task?processDefinitionId=RestExample:6:7c2c462f-e8e2-11e9-bfce-9eb6d0894ce9",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"task"
+							],
+							"query": [
+								{
+									"key": "processDefinitionId",
+									"value": "RestExample:6:7c2c462f-e8e2-11e9-bfce-9eb6d0894ce9"
+								}
+							]
+						},
+						"description": "https://docs.camunda.org/manual/7.11/reference/rest/task/get-query/"
+					},
+					"response": []
+				},
+				{
+					"name": "List tasks for process instance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/task?processInstanceId=b5b370bb-e8d3-11e9-bfce-9eb6d0894ce9",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"task"
+							],
+							"query": [
+								{
+									"key": "processInstanceId",
+									"value": "b5b370bb-e8d3-11e9-bfce-9eb6d0894ce9"
+								}
+							]
+						},
+						"description": "https://docs.camunda.org/manual/7.11/reference/rest/task/get-query/"
+					},
+					"response": []
+				},
+				{
+					"name": "List tasks for task definition",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/task?taskDefinitionKey=CarpeDiem",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"task"
+							],
+							"query": [
+								{
+									"key": "taskDefinitionKey",
+									"value": "CarpeDiem"
+								}
+							]
+						},
+						"description": "https://docs.camunda.org/manual/7.11/reference/rest/task/get-query/"
+					},
+					"response": []
+				},
+				{
+					"name": "Count tasks for task definition",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/task/count?taskDefinitionKey=CarpeDiem",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"task",
+								"count"
+							],
+							"query": [
+								{
+									"key": "taskDefinitionKey",
+									"value": "CarpeDiem"
+								}
+							]
+						},
+						"description": "https://docs.camunda.org/manual/7.11/reference/rest/task/get-query-count/"
+					},
+					"response": []
+				},
+				{
+					"name": "Claim task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"userId\": \"kermit\"}"
+						},
+						"url": {
+							"raw": "{{rest_url}}/task/17d608e4-e8dd-11e9-bfce-9eb6d0894ce9/claim",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"task",
+								"17d608e4-e8dd-11e9-bfce-9eb6d0894ce9",
+								"claim"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/7.11/reference/rest/task/get-query-count/"
+					},
+					"response": []
+				},
+				{
+					"name": "Complete task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"variables\":\r\n    {\"aVariable\": {\"value\": \"aStringValue\"},\r\n    \"anotherVariable\": {\"value\": 42},\r\n    \"noctem\": {\"value\": true}},\r\n \"withVariablesInReturn\": true\r\n}"
+						},
+						"url": {
+							"raw": "{{rest_url}}/task/57ccf20b-e8e3-11e9-bfce-9eb6d0894ce9/complete",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"task",
+								"57ccf20b-e8e3-11e9-bfce-9eb6d0894ce9",
+								"complete"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/7.11/reference/rest/task/post-complete/"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "History",
+			"item": [
+				{
+					"name": "History - Process Instance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/history/process-instance",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"history",
+								"process-instance"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Process Defnition",
+			"item": [
+				{
+					"name": "Start process instance",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"variables\": {\r\n    \"aVariable\" : {\r\n        \"value\" : \"aStringValue\",\r\n        \"type\": \"String\"\r\n    },\r\n    \"anotherVariable\" : {\r\n      \"value\" : true,\r\n      \"type\": \"Boolean\"\r\n    }\r\n  },\r\n \"businessKey\" : \"myBusinessKey\"\r\n}"
+						},
+						"url": {
+							"raw": "{{rest_url}}/process-definition/key/RestExample/start",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"process-definition",
+								"key",
+								"RestExample",
+								"start"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Start process instance",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"variables\": {\r\n    \"aVariable\" : {\r\n        \"value\" : \"aStringValue\",\r\n        \"type\": \"String\"\r\n    },\r\n    \"anotherVariable\" : {\r\n      \"value\" : true,\r\n      \"type\": \"Boolean\"\r\n    }\r\n  },\r\n \"businessKey\" : \"myBusinessKey\"\r\n}"
+								},
+								"url": {
+									"raw": "{{rest_url}}/process-definition/key/RomeInvades/start",
+									"host": [
+										"{{rest_url}}"
+									],
+									"path": [
+										"process-definition",
+										"key",
+										"RomeInvades",
+										"start"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "343"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Oct 2019 07:25:59 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"links\": [\n        {\n            \"method\": \"GET\",\n            \"href\": \"http://localhost:8080/rest/process-instance/b5b370bb-e8d3-11e9-bfce-9eb6d0894ce9\",\n            \"rel\": \"self\"\n        }\n    ],\n    \"id\": \"b5b370bb-e8d3-11e9-bfce-9eb6d0894ce9\",\n    \"definitionId\": \"RomeInvades:1:e5dc2e91-e8ce-11e9-bfce-9eb6d0894ce9\",\n    \"businessKey\": \"myBusinessKey\",\n    \"caseInstanceId\": null,\n    \"ended\": false,\n    \"suspended\": false,\n    \"tenantId\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "List Proess Definitions (all)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/process-definition",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"process-definition"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List active proess definitions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/process-definition?active=true",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"process-definition"
+							],
+							"query": [
+								{
+									"key": "active",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"variable": [
+		{
+			"id": "8d9b3b9e-fbcb-41d8-84fe-77f6da1006f9",
+			"key": "server_rest_url",
+			"value": "localhost:8080/rest",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
