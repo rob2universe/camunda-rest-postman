@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_02fjh12" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.3.5">
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" id="Definitions_02fjh12" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.3.5">
   <decision id="decideOnBeverage" name="Decide on Beverage" camunda:versionTag="1">
+    <extensionElements>
+      <biodi:bounds x="150" y="81" width="180" height="80" />
+      <biodi:edge source="decideOnTimeOfTheDay">
+        <biodi:waypoints x="377" y="248" />
+        <biodi:waypoints x="322" y="161" />
+      </biodi:edge>
+    </extensionElements>
+    <informationRequirement>
+      <requiredDecision href="#decideOnTimeOfTheDay" />
+    </informationRequirement>
     <decisionTable id="decisionTable_1" hitPolicy="FIRST">
       <input id="input_1" label="Name of Recipient">
         <inputExpression id="inputExpression_1" typeRef="string">
@@ -10,9 +20,9 @@
           <text>"Tic","Tac","Toe"</text>
         </inputValues>
       </input>
-      <input id="InputClause_17zstrj" label="Time of Day">
+      <input id="InputClause_17zstrj" label="Time of the Day">
         <inputExpression id="LiteralExpression_1s0w6b5" typeRef="string">
-          <text>timeOfDay</text>
+          <text>timeOfTheDay</text>
         </inputExpression>
         <inputValues id="UnaryTests_13rzgho">
           <text>"Morning","Afternoon","Evening","Night"</text>
@@ -76,6 +86,56 @@
         </inputEntry>
         <outputEntry id="LiteralExpression_09uroni">
           <text>"Beer"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="decideOnTimeOfTheDay" name="Decide on time of the day">
+    <extensionElements>
+      <biodi:bounds x="312" y="248" width="180" height="80" />
+    </extensionElements>
+    <decisionTable id="DecisionTable_1637p2e">
+      <input id="InputClause_0o37plr" label="Hour of the Day">
+        <inputExpression id="LiteralExpression_0pxrb4s" typeRef="integer">
+          <text>hourOfTheDay</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_02z6g5t" label="Time of the day" name="timeOfTheDay" typeRef="string">
+        <outputValues id="UnaryTests_0dmfevy">
+          <text>"Morning","Afternoon","Evening","Night"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_1xgnm6g">
+        <inputEntry id="UnaryTests_02421tk">
+          <text>[6..11]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_05uog78">
+          <text>"Morning"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_04mzmek">
+        <inputEntry id="UnaryTests_0pf45m5">
+          <text>[12..16]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16n90sr">
+          <text>"Afternoon"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0h55o8y">
+        <inputEntry id="UnaryTests_02jzs8h">
+          <text>[17..21]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1x6p7ez">
+          <text>"Evening"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_11uplzv">
+        <inputEntry id="UnaryTests_0ecusj9" expressionLanguage="feel">
+          <description>Between 10pm and 6am</description>
+          <text>[22..23],[0..5]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_18h41os">
+          <text>"Night"</text>
         </outputEntry>
       </rule>
     </decisionTable>
