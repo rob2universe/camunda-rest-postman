@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_02fjh12" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.3.5">
+  <decision id="decideOnBeverage" name="Decide on Beverage" camunda:versionTag="1">
+    <decisionTable id="decisionTable_1" hitPolicy="FIRST">
+      <input id="input_1" label="Name of Recipient">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text>name</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_072q7gu">
+          <text>"Tic","Tac","Toe"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_17zstrj" label="Time of Day">
+        <inputExpression id="LiteralExpression_1s0w6b5" typeRef="string">
+          <text>timeOfDay</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_13rzgho">
+          <text>"Morning","Afternoon","Evening","Night"</text>
+        </inputValues>
+      </input>
+      <output id="output_1" label="Drink" name="drink" typeRef="string">
+        <outputValues id="UnaryTests_0mrlb2w">
+          <text>"Coffee","Tea","Milk"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_1vecfzj">
+        <inputEntry id="UnaryTests_0ohga2e">
+          <text>"Tic","Tac"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qr3a9t">
+          <text>"Morning"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0hwsph8">
+          <text>"Coffee"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13kj7sr">
+        <inputEntry id="UnaryTests_094yryi">
+          <text>"Toe"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hiwtpr">
+          <text>"Night"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_151p67z">
+          <text>"Tea"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0w30guc">
+        <inputEntry id="UnaryTests_19n08vc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1it3x97">
+          <text>"Afternoon","Evening"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1hz40hj">
+          <text>"Club Mate"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1fz894h">
+        <inputEntry id="UnaryTests_04b55hy">
+          <text>"Tac"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yaudta">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1f6avw3">
+          <text>"Lemonade"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1bp7g77">
+        <inputEntry id="UnaryTests_1nbki44">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03d03v9">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_09uroni">
+          <text>"Beer"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

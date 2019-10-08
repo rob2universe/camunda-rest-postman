@@ -606,11 +606,177 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Decision Definition",
+			"item": [
+				{
+					"name": "List Decision Definitions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/decision-definition",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"decision-definition"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Count Decision Definitions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/decision-definition/count",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"decision-definition",
+								"count"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/7.11/reference/rest/decision-definition/get-query-count/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Decision Definitions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/decision-definition/key/decideOnBeverage",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"decision-definition",
+								"key",
+								"decideOnBeverage"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/7.11/reference/rest/decision-definition/get/"
+					},
+					"response": []
+				},
+				{
+					"name": "Evaluate Decision Definition",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"variables\" : {\r\n    \"name\" : { \"value\" : \"Tic\", \"type\" : \"String\" },\r\n    \"timeOfDay\" : { \"value\" : \"Morning\", \"type\" : \"String\" }\r\n  }\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{rest_url}}/decision-definition/key/decideOnBeverage/evaluate",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"decision-definition",
+								"key",
+								"decideOnBeverage",
+								"evaluate"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/7.11/reference/rest/decision-definition/post-evaluate/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Decision Definitions XML",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/decision-definition/key/decideOnBeverage/xml",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"decision-definition",
+								"key",
+								"decideOnBeverage",
+								"xml"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/7.11/reference/rest/decision-definition/get-xml/"
+					},
+					"response": []
+				},
+				{
+					"name": "Update history ttl",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n      \"historyTimeToLive\" : 5\r\n    }"
+						},
+						"url": {
+							"raw": "{{rest_url}}/decision-definition/key/decideOnBeverage/history-time-to-live",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"decision-definition",
+								"key",
+								"decideOnBeverage",
+								"history-time-to-live"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/7.11/reference/rest/decision-definition/put-history-time-to-live/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Decision Definitions Diagram",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/decision-definition/key/decideOnBeverage/diagram",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"decision-definition",
+								"key",
+								"decideOnBeverage",
+								"diagram"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/7.11/reference/rest/decision-definition/get-diagram/"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"variable": [
 		{
-			"id": "8d9b3b9e-fbcb-41d8-84fe-77f6da1006f9",
+			"id": "1c33c89e-27d9-4240-a072-e2a4d3efa177",
 			"key": "server_rest_url",
 			"value": "localhost:8080/rest",
 			"type": "string"
