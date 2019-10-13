@@ -232,95 +232,12 @@
 			"name": "Tasks",
 			"item": [
 				{
-					"name": "Activity Instances, unfinished",
+					"name": "List tasks (for process instance, task definition,...)",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{rest_url}}/history/activity-instance?unfinished=true",
-							"host": [
-								"{{rest_url}}"
-							],
-							"path": [
-								"history",
-								"activity-instance"
-							],
-							"query": [
-								{
-									"key": "unfinished",
-									"value": "true"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "external-task",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{rest_url}}/external-task",
-							"host": [
-								"{{rest_url}}"
-							],
-							"path": [
-								"external-task"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "List tasks",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{rest_url}}/task",
-							"host": [
-								"{{rest_url}}"
-							],
-							"path": [
-								"task"
-							]
-						},
-						"description": "https://docs.camunda.org/manual/latest/reference/rest/task/get-query/"
-					},
-					"response": []
-				},
-				{
-					"name": "List tasks for process definition",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{rest_url}}/task?processDefinitionId=RestExample:6:7c2c462f-e8e2-11e9-bfce-9eb6d0894ce9",
-							"host": [
-								"{{rest_url}}"
-							],
-							"path": [
-								"task"
-							],
-							"query": [
-								{
-									"key": "processDefinitionId",
-									"value": "RestExample:6:7c2c462f-e8e2-11e9-bfce-9eb6d0894ce9"
-								}
-							]
-						},
-						"description": "https://docs.camunda.org/manual/7.11/reference/rest/task/get-query/"
-					},
-					"response": []
-				},
-				{
-					"name": "List tasks for process instance",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{rest_url}}/task?processInstanceId=b5b370bb-e8d3-11e9-bfce-9eb6d0894ce9",
+							"raw": "{{rest_url}}/task?",
 							"host": [
 								"{{rest_url}}"
 							],
@@ -330,35 +247,27 @@
 							"query": [
 								{
 									"key": "processInstanceId",
-									"value": "b5b370bb-e8d3-11e9-bfce-9eb6d0894ce9"
-								}
-							]
-						},
-						"description": "https://docs.camunda.org/manual/7.11/reference/rest/task/get-query/"
-					},
-					"response": []
-				},
-				{
-					"name": "List tasks for task definition",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{rest_url}}/task?taskDefinitionKey=CarpeDiem",
-							"host": [
-								"{{rest_url}}"
-							],
-							"path": [
-								"task"
-							],
-							"query": [
+									"value": "b091183d-ed56-11e9-911d-9eb6d0894ce9",
+									"disabled": true
+								},
 								{
 									"key": "taskDefinitionKey",
-									"value": "CarpeDiem"
+									"value": "CarpeDiem",
+									"disabled": true
+								},
+								{
+									"key": "processDefinitionId",
+									"value": "RestExample:6:7c2c462f-e8e2-11e9-bfce-9eb6d0894ce9",
+									"disabled": true
+								},
+								{
+									"key": "assignee",
+									"value": "demo",
+									"disabled": true
 								}
 							]
 						},
-						"description": "https://docs.camunda.org/manual/7.11/reference/rest/task/get-query/"
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/task/get-query/"
 					},
 					"response": []
 				},
@@ -383,7 +292,7 @@
 								}
 							]
 						},
-						"description": "https://docs.camunda.org/manual/7.11/reference/rest/task/get-query-count/"
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/task/get-query-count/"
 					},
 					"response": []
 				},
@@ -413,7 +322,7 @@
 								"claim"
 							]
 						},
-						"description": "https://docs.camunda.org/manual/7.11/reference/rest/task/get-query-count/"
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/task/get-query-count/"
 					},
 					"response": []
 				},
@@ -443,7 +352,7 @@
 								"complete"
 							]
 						},
-						"description": "https://docs.camunda.org/manual/7.11/reference/rest/task/post-complete/"
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/task/post-complete/"
 					},
 					"response": []
 				}
@@ -759,18 +668,24 @@
 					"name": "Activity Instance",
 					"item": [
 						{
-							"name": "List Activity Instances",
+							"name": "Activity Instances (unfinished,...)",
 							"request": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{rest_url}}/history/activity-instance",
+									"raw": "{{rest_url}}/history/activity-instance?unfinished=true",
 									"host": [
 										"{{rest_url}}"
 									],
 									"path": [
 										"history",
 										"activity-instance"
+									],
+									"query": [
+										{
+											"key": "unfinished",
+											"value": "true"
+										}
 									]
 								},
 								"description": "https://docs.camunda.org/manual/latest/reference/rest/history/activity-instance/get-activity-instance-query/"
@@ -864,6 +779,44 @@
 										{
 											"key": "processDefinitionId",
 											"value": "answerForumQuestion:1:2593b277-ea3a-11e9-9fe6-9eb6d0894ce9"
+										}
+									]
+								},
+								"description": "https://docs.camunda.org/manual/latest/reference/rest/history/activity-instance/get-activity-instance-query/"
+							},
+							"response": []
+						},
+						{
+							"name": "List AIs for PI (unfinished; sorted by start time)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{rest_url}}/history/activity-instance?processInstanceId=2dd727c0-eb40-11e9-af00-9eb6d0894ce9&sortOrder=desc&sortBy=startTime",
+									"host": [
+										"{{rest_url}}"
+									],
+									"path": [
+										"history",
+										"activity-instance"
+									],
+									"query": [
+										{
+											"key": "unfinished",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "processInstanceId",
+											"value": "2dd727c0-eb40-11e9-af00-9eb6d0894ce9"
+										},
+										{
+											"key": "sortOrder",
+											"value": "desc"
+										},
+										{
+											"key": "sortBy",
+											"value": "startTime"
 										}
 									]
 								},
@@ -973,17 +926,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"variables\": {\r\n    \"question\" : {\r\n        \"value\" : \"How to strt a process?\",\r\n        \"type\": \"String\"\r\n    },\r\n    \"anotherVariable\" : {\r\n      \"value\" : true,\r\n      \"type\": \"Boolean\"\r\n    }\r\n  },\r\n \"businessKey\" : \"bc2\"\r\n}"
+							"raw": "{\r\n  \"variables\": {\r\n  \t\"airportCode\" : {\r\n  \t\t\"value\" : \"BER\",\r\n  \t\t\"type\" : \"String\"\r\n  \t},\r\n    \"OpeningDate\" : {\r\n        \"value\" : \"2019-10-10T17:16:20.000+0800\",\r\n        \"type\": \"Date\"\r\n    },\r\n    \"budget\" : {\r\n      \"value\" : \"20000000\",\r\n      \"type\": \"Integer\"\r\n    }\r\n  },\r\n \"businessKey\" : \"bc2\"\r\n}"
 						},
 						"url": {
-							"raw": "{{rest_url}}/process-definition/key/answerForumQuestion/start",
+							"raw": "{{rest_url}}/process-definition/key/BER/start",
 							"host": [
 								"{{rest_url}}"
 							],
 							"path": [
 								"process-definition",
 								"key",
-								"answerForumQuestion",
+								"BER",
 								"start"
 							]
 						}
@@ -1652,11 +1605,182 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "External Task",
+			"item": [
+				{
+					"name": "Get external task by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/external-task/be126e74-ed56-11e9-911d-9eb6d0894ce9",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"external-task",
+								"be126e74-ed56-11e9-911d-9eb6d0894ce9"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/7.11/reference/rest/external-task/get"
+					},
+					"response": []
+				},
+				{
+					"name": "List external task(s) (for process definition, topic,...) Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/external-task",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"external-task"
+							],
+							"query": [
+								{
+									"key": "processDefinitionKey",
+									"value": "TwitterQAProcess",
+									"disabled": true
+								},
+								{
+									"key": "topicName",
+									"value": "sendRejection",
+									"disabled": true
+								}
+							]
+						},
+						"description": "https://docs.camunda.org/manual/7.11/reference/rest/external-task/get-query/"
+					},
+					"response": []
+				},
+				{
+					"name": "Count external tasks (for activityId,...)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/external-task/count?activityId=Task_SendRejection",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"external-task",
+								"count"
+							],
+							"query": [
+								{
+									"key": "externalTaskId",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "activityId",
+									"value": "Task_SendRejection"
+								}
+							]
+						},
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/task/get-query-count/"
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch and lock external tasks (by topic,...)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"workerId\":\"aWorkerId\",\r\n  \"maxTasks\":1,\r\n  \"usePriority\":true,\r\n  \"topics\":\r\n      [{\"topicName\": \"sendRejection\",\r\n      \"lockDuration\": 10000,\r\n      \"variables\": [\"orderId\"]\r\n      }]\r\n}"
+						},
+						"url": {
+							"raw": "{{rest_url}}/external-task/fetchAndLock",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"external-task",
+								"fetchAndLock"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/external-task/fetch/"
+					},
+					"response": []
+				},
+				{
+					"name": "Unlock external task by id",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{rest_url}}/external-task/c91ee539-ed5c-11e9-911d-9eb6d0894ce9/unlock",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"external-task",
+								"c91ee539-ed5c-11e9-911d-9eb6d0894ce9",
+								"unlock"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/external-task/post-unlock/"
+					},
+					"response": []
+				},
+				{
+					"name": "Complete external task by id",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"workerId\": \"aWorkerId\",\r\n  \"variables\":\r\n      {\"aVariable\": {\"value\": \"aStringValue\"},\r\n      \"anotherVariable\": {\"value\": 42},\r\n      \"aThirdVariable\": {\"value\": true}},\r\n  \"localVariables\":\r\n      {\"aLocalVariable\": {\"value\": \"aStringValue\"}}\r\n}"
+						},
+						"url": {
+							"raw": "{{rest_url}}/external-task/7fa22e66-ed5c-11e9-911d-9eb6d0894ce9/complete",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"external-task",
+								"7fa22e66-ed5c-11e9-911d-9eb6d0894ce9",
+								"complete"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/external-task/post-complete/"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"variable": [
 		{
-			"id": "d0840925-d639-4299-8fa7-f7d55d408648",
+			"id": "e48802ba-40d0-4ad4-97a0-8a766011aa9e",
 			"key": "server_rest_url",
 			"value": "localhost:8080/rest",
 			"type": "string"
