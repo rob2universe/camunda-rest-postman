@@ -371,7 +371,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{rest_url}}/history/process-instance?unfinished=true",
+									"raw": "{{rest_url}}/history/process-instance?",
 									"host": [
 										"{{rest_url}}"
 									],
@@ -382,7 +382,8 @@
 									"query": [
 										{
 											"key": "unfinished",
-											"value": "true"
+											"value": "true",
+											"disabled": true
 										},
 										{
 											"key": "completed",
@@ -507,14 +508,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{rest_url}}/history/process-instance/25cb1642-ea3a-11e9-9fe6-9eb6d0894ce9",
+									"raw": "{{rest_url}}/history/process-instance/f5ea3c39-ee25-11e9-aa4e-9eb6d0894ce9",
 									"host": [
 										"{{rest_url}}"
 									],
 									"path": [
 										"history",
 										"process-instance",
-										"25cb1642-ea3a-11e9-9fe6-9eb6d0894ce9"
+										"f5ea3c39-ee25-11e9-aa4e-9eb6d0894ce9"
 									]
 								},
 								"description": "https://docs.camunda.org/manual/latest/reference/rest/history/process-instance/get-process-instance/"
@@ -668,7 +669,7 @@
 					"name": "Activity Instance",
 					"item": [
 						{
-							"name": "Activity Instances (unfinished,...)",
+							"name": "List Activity Instances (unfinished,...)",
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -689,25 +690,6 @@
 									]
 								},
 								"description": "https://docs.camunda.org/manual/latest/reference/rest/history/activity-instance/get-activity-instance-query/"
-							},
-							"response": []
-						},
-						{
-							"name": "Get Activity Instance",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{rest_url}}/history/activity-instance",
-									"host": [
-										"{{rest_url}}"
-									],
-									"path": [
-										"history",
-										"activity-instance"
-									]
-								},
-								"description": "https://docs.camunda.org/manual/latest/reference/rest/history/activity-instance/get-activity-instance/"
 							},
 							"response": []
 						},
@@ -792,7 +774,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{rest_url}}/history/activity-instance?processInstanceId=2dd727c0-eb40-11e9-af00-9eb6d0894ce9&sortOrder=desc&sortBy=startTime",
+									"raw": "{{rest_url}}/history/activity-instance?processInstanceId=f5ea3c39-ee25-11e9-aa4e-9eb6d0894ce9&sortOrder=desc&sortBy=startTime",
 									"host": [
 										"{{rest_url}}"
 									],
@@ -808,7 +790,7 @@
 										},
 										{
 											"key": "processInstanceId",
-											"value": "2dd727c0-eb40-11e9-af00-9eb6d0894ce9"
+											"value": "f5ea3c39-ee25-11e9-aa4e-9eb6d0894ce9"
 										},
 										{
 											"key": "sortOrder",
@@ -1773,6 +1755,242 @@
 						"description": "https://docs.camunda.org/manual/latest/reference/rest/external-task/post-complete/"
 					},
 					"response": []
+				},
+				{
+					"name": "Handle failure for external task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"workerId\": \"aWorkerId\",\r\n  \"errorMessage\": \"Does not compute\",\r\n  \"retries\": 0,\r\n  \"retryTimeout\": 60000\r\n}"
+						},
+						"url": {
+							"raw": "{{rest_url}}/external-task/ffa7af19-ee29-11e9-970f-9eb6d0894ce9/failure",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"external-task",
+								"ffa7af19-ee29-11e9-970f-9eb6d0894ce9",
+								"failure"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/external-task/post-failure/"
+					},
+					"response": []
+				},
+				{
+					"name": "Handle BPMNError for external task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n      \"workerId\": \"aWorkerId\",\r\n      \"errorCode\": \"bpmn-error\",\r\n      \"errorMessage\": \"a BPMN error message\",\r\n      \"variables\": {\r\n          \"aVariable\" : {\r\n              \"value\" : \"aStringValue\",\r\n              \"type\": \"String\"\r\n          },\r\n          \"anotherVariable\" : {\r\n              \"value\" : true,\r\n              \"type\": \"Boolean\"\r\n          }\r\n      }\r\n    }"
+						},
+						"url": {
+							"raw": "{{rest_url}}/external-task/f5f4eaa6-ee25-11e9-aa4e-9eb6d0894ce9/bpmnError",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"external-task",
+								"f5f4eaa6-ee25-11e9-aa4e-9eb6d0894ce9",
+								"bpmnError"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/external-task/post-bpmn-error/"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Incident",
+			"item": [
+				{
+					"name": "Get Incident",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/incident/id",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"incident",
+								"id"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/incident/get-incident/"
+					},
+					"response": []
+				},
+				{
+					"name": "List Incidents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/incident?",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"incident"
+							],
+							"query": [
+								{
+									"key": "incidentType",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "tenantIdIn",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "incidentMessage",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "processDefinitionId",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "processInstanceId",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "activityId",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "causeIncidentId",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "executionId",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "rootCauseIncidentId",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "configuration",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "jobDefinitionIdIn",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/incident/get-query/\n  \nhttps://docs.camunda.org/manual/latest/user-guide/process-engine/incidents/#incident-types"
+					},
+					"response": []
+				},
+				{
+					"name": "Count Incidents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/incident/count?",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"incident",
+								"count"
+							],
+							"query": [
+								{
+									"key": "incidentType",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "tenantIdIn",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "incidentMessage",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "processDefinitionId",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "processInstanceId",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "activityId",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "causeIncidentId",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "executionId",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "rootCauseIncidentId",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "configuration",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "jobDefinitionIdIn",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/incident/get-query-count/"
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -1780,7 +1998,7 @@
 	],
 	"variable": [
 		{
-			"id": "e48802ba-40d0-4ad4-97a0-8a766011aa9e",
+			"id": "dfdabf75-6a45-464e-893b-47c756c69749",
 			"key": "server_rest_url",
 			"value": "localhost:8080/rest",
 			"type": "string"
