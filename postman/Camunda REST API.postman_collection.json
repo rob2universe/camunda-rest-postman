@@ -14,15 +14,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{server_rest_url}}/deployment",
+							"raw": "{{rest_url}}/deployment",
 							"host": [
-								"{{server_rest_url}}"
+								"{{rest_url}}"
 							],
 							"path": [
 								"deployment"
 							]
 						},
-						"description": "https://docs.camunda.org/manual/7.11/reference/rest/deployment/get-query/"
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/deployment/get-query/"
 					},
 					"response": []
 				},
@@ -32,16 +32,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{server_rest_url}}/deployment/4570ad49-e8ce-11e9-9542-9eb6d0894ce9",
+							"raw": "{{rest_url}}/deployment/4570ad49-e8ce-11e9-9542-9eb6d0894ce9",
 							"host": [
-								"{{server_rest_url}}"
+								"{{rest_url}}"
 							],
 							"path": [
 								"deployment",
 								"4570ad49-e8ce-11e9-9542-9eb6d0894ce9"
 							]
 						},
-						"description": "https://docs.camunda.org/manual/7.11/reference/rest/deployment/get/"
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/deployment/get/"
 					},
 					"response": []
 				},
@@ -61,7 +61,7 @@
 								"resources"
 							]
 						},
-						"description": "https://docs.camunda.org/manual/7.11/reference/rest/deployment/get-resources/"
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/deployment/get-resources/"
 					},
 					"response": []
 				},
@@ -71,9 +71,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{server_rest_url}}/deployment/24b5de69-e8c9-11e9-9542-9eb6d0894ce9/resources/24b6057b-e8c9-11e9-9542-9eb6d0894ce9",
+							"raw": "{{rest_url}}/deployment/24b5de69-e8c9-11e9-9542-9eb6d0894ce9/resources/24b6057b-e8c9-11e9-9542-9eb6d0894ce9",
 							"host": [
-								"{{server_rest_url}}"
+								"{{rest_url}}"
 							],
 							"path": [
 								"deployment",
@@ -82,7 +82,7 @@
 								"24b6057b-e8c9-11e9-9542-9eb6d0894ce9"
 							]
 						},
-						"description": "https://docs.camunda.org/manual/7.11/reference/rest/deployment/get-query/"
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/deployment/get-query/"
 					},
 					"response": []
 				},
@@ -92,9 +92,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{server_rest_url}}/deployment/24b5de69-e8c9-11e9-9542-9eb6d0894ce9/resources/24b6057b-e8c9-11e9-9542-9eb6d0894ce9/data",
+							"raw": "{{rest_url}}/deployment/24b5de69-e8c9-11e9-9542-9eb6d0894ce9/resources/24b6057b-e8c9-11e9-9542-9eb6d0894ce9/data",
 							"host": [
-								"{{server_rest_url}}"
+								"{{rest_url}}"
 							],
 							"path": [
 								"deployment",
@@ -104,7 +104,7 @@
 								"data"
 							]
 						},
-						"description": "https://docs.camunda.org/manual/7.11/reference/rest/deployment/get-resource-binary/"
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/deployment/get-resource-binary/"
 					},
 					"response": []
 				},
@@ -114,16 +114,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{server_rest_url}}/deployment/count",
+							"raw": "{{rest_url}}/deployment/count",
 							"host": [
-								"{{server_rest_url}}"
+								"{{rest_url}}"
 							],
 							"path": [
 								"deployment",
 								"count"
 							]
 						},
-						"description": "https://docs.camunda.org/manual/7.6/reference/rest/deployment/get-query-count/"
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/deployment/get-query-count/"
 					},
 					"response": []
 				},
@@ -156,16 +156,16 @@
 							]
 						},
 						"url": {
-							"raw": "{{server_rest_url}}/deployment/create",
+							"raw": "{{rest_url}}/deployment/create",
 							"host": [
-								"{{server_rest_url}}"
+								"{{rest_url}}"
 							],
 							"path": [
 								"deployment",
 								"create"
 							]
 						},
-						"description": "https://docs.camunda.org/manual/7.11/reference/rest/deployment/post-deployment/"
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/deployment/post-deployment/"
 					},
 					"response": []
 				},
@@ -192,17 +192,17 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "{{server_rest_url}}/deployment/e5c6d1c8-e8ce-11e9-bfce-9eb6d0894ce9/redeploy",
+							"raw": "{{rest_url}}/deployment/69639f28-f18d-11e9-8615-9eb6d0894ce9/redeploy",
 							"host": [
-								"{{server_rest_url}}"
+								"{{rest_url}}"
 							],
 							"path": [
 								"deployment",
-								"e5c6d1c8-e8ce-11e9-bfce-9eb6d0894ce9",
+								"69639f28-f18d-11e9-8615-9eb6d0894ce9",
 								"redeploy"
 							]
 						},
-						"description": "https://docs.camunda.org/manual/7.11/reference/rest/deployment/post-redeploy-deployment/"
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/deployment/post-redeploy-deployment/"
 					},
 					"response": []
 				},
@@ -212,16 +212,16 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{server_rest_url}}/deployment/24b5de69-e8c9-11e9-9542-9eb6d0894ce9",
+							"raw": "{{rest_url}}/deployment/69639f28-f18d-11e9-8615-9eb6d0894ce9",
 							"host": [
-								"{{server_rest_url}}"
+								"{{rest_url}}"
 							],
 							"path": [
 								"deployment",
-								"24b5de69-e8c9-11e9-9542-9eb6d0894ce9"
+								"69639f28-f18d-11e9-8615-9eb6d0894ce9"
 							]
 						},
-						"description": "https://docs.camunda.org/manual/7.11/reference/rest/deployment/delete-deployment/"
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/deployment/delete-deployment/"
 					},
 					"response": []
 				}
@@ -774,7 +774,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{rest_url}}/history/activity-instance?processInstanceId=f5ea3c39-ee25-11e9-aa4e-9eb6d0894ce9&sortOrder=desc&sortBy=startTime",
+									"raw": "{{rest_url}}/history/activity-instance?processInstanceId=317ddd05-ee4f-11e9-ad91-9eb6d0894ce9&sortOrder=desc&sortBy=startTime",
 									"host": [
 										"{{rest_url}}"
 									],
@@ -790,7 +790,7 @@
 										},
 										{
 											"key": "processInstanceId",
-											"value": "f5ea3c39-ee25-11e9-aa4e-9eb6d0894ce9"
+											"value": "317ddd05-ee4f-11e9-ad91-9eb6d0894ce9"
 										},
 										{
 											"key": "sortOrder",
@@ -1998,7 +1998,7 @@
 	],
 	"variable": [
 		{
-			"id": "dfdabf75-6a45-464e-893b-47c756c69749",
+			"id": "990cfe43-5218-4fa5-9b31-432ebab3897e",
 			"key": "server_rest_url",
 			"value": "localhost:8080/rest",
 			"type": "string"
