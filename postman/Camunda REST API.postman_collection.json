@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "70f09947-8ad9-4d13-8c95-90e2c3398032",
+		"_postman_id": "9dd900c2-2f1e-4e67-b625-2b8fab69f586",
 		"name": "Camunda REST API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -940,7 +940,7 @@
 									"raw": "{\r\n  \"variables\": {\r\n    \"aVariable\" : {\r\n        \"value\" : \"aStringValue\",\r\n        \"type\": \"String\"\r\n    },\r\n    \"anotherVariable\" : {\r\n      \"value\" : true,\r\n      \"type\": \"Boolean\"\r\n    }\r\n  },\r\n \"businessKey\" : \"myBusinessKey\"\r\n}"
 								},
 								"url": {
-									"raw": "{{rest_url}}/process-definition/key/RomeInvades/start",
+									"raw": "{{rest_url}}/process-definition/key/RomeInvades/start?=",
 									"host": [
 										"{{rest_url}}"
 									],
@@ -1058,7 +1058,7 @@
 								"count"
 							]
 						},
-						"description": "https://docs.camunda.org/manual/7.11/reference/rest/decision-definition/get-query-count/"
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/decision-definition/get-query-count/"
 					},
 					"response": []
 				},
@@ -1078,7 +1078,7 @@
 								"decideOnBeverage"
 							]
 						},
-						"description": "https://docs.camunda.org/manual/7.11/reference/rest/decision-definition/get/"
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/decision-definition/get/"
 					},
 					"response": []
 				},
@@ -1109,7 +1109,7 @@
 								"evaluate"
 							]
 						},
-						"description": "https://docs.camunda.org/manual/7.11/reference/rest/decision-definition/post-evaluate/"
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/decision-definition/post-evaluate/"
 					},
 					"response": []
 				},
@@ -1130,7 +1130,7 @@
 								"xml"
 							]
 						},
-						"description": "https://docs.camunda.org/manual/7.11/reference/rest/decision-definition/get-xml/"
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/decision-definition/get-xml/"
 					},
 					"response": []
 				},
@@ -1161,7 +1161,7 @@
 								"history-time-to-live"
 							]
 						},
-						"description": "https://docs.camunda.org/manual/7.11/reference/rest/decision-definition/put-history-time-to-live/"
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/decision-definition/put-history-time-to-live/"
 					},
 					"response": []
 				},
@@ -1182,7 +1182,7 @@
 								"diagram"
 							]
 						},
-						"description": "https://docs.camunda.org/manual/7.11/reference/rest/decision-definition/get-diagram/"
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/decision-definition/get-diagram/"
 					},
 					"response": []
 				}
@@ -1606,7 +1606,7 @@
 								"be126e74-ed56-11e9-911d-9eb6d0894ce9"
 							]
 						},
-						"description": "https://docs.camunda.org/manual/7.11/reference/rest/external-task/get"
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/external-task/get"
 					},
 					"response": []
 				},
@@ -1616,7 +1616,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{rest_url}}/external-task",
+							"raw": "{{rest_url}}/external-task?",
 							"host": [
 								"{{rest_url}}"
 							],
@@ -1636,7 +1636,7 @@
 								}
 							]
 						},
-						"description": "https://docs.camunda.org/manual/7.11/reference/rest/external-task/get-query/"
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/external-task/get-query/"
 					},
 					"response": []
 				},
@@ -1994,14 +1994,6 @@
 				}
 			],
 			"protocolProfileBehavior": {}
-		}
-	],
-	"variable": [
-		{
-			"id": "990cfe43-5218-4fa5-9b31-432ebab3897e",
-			"key": "server_rest_url",
-			"value": "localhost:8080/rest",
-			"type": "string"
 		}
 	],
 	"protocolProfileBehavior": {}
