@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9dd900c2-2f1e-4e67-b625-2b8fab69f586",
+		"_postman_id": "657a7e3a-cab3-427b-b57f-c231ff7e52bb",
 		"name": "Camunda REST API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -843,38 +843,73 @@
 					"name": "Variable Instance",
 					"item": [
 						{
-							"name": "Get Variable Instance by id",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
+							"name": "Get Variable Instances by PI id",
 							"request": {
-								"method": "GET",
+								"method": "POST",
 								"header": [
 									{
 										"key": "Content-Type",
-										"type": "text",
+										"name": "Content-Type",
 										"value": "application/json",
-										"disabled": true
+										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": ""
+									"raw": "{\r\n  \"processInstanceId\":\"da0e220e-0ae1-11ea-a5c4-00155d00d800\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
 								},
 								"url": {
-									"raw": "{{rest_url}}/history/variable-instance/78e16d40-ea55-11e9-9fe6-9eb6d0894ce9?deserializeValue=false",
+									"raw": "{{rest_url}}/history/variable-instance/?deserializeValue=false",
 									"host": [
 										"{{rest_url}}"
 									],
 									"path": [
 										"history",
 										"variable-instance",
-										"78e16d40-ea55-11e9-9fe6-9eb6d0894ce9"
+										""
 									],
 									"query": [
 										{
 											"key": "deserializeValue",
 											"value": "false"
+										}
+									]
+								},
+								"description": "https://docs.camunda.org/manual/latest/reference/rest/history/variable-instance/get-variable-instance/"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Variable Instance",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{rest_url}}/history/variable-instance/?deserializeValue=true",
+									"host": [
+										"{{rest_url}}"
+									],
+									"path": [
+										"history",
+										"variable-instance",
+										""
+									],
+									"query": [
+										{
+											"key": "deserializeValue",
+											"value": "true"
 										}
 									]
 								},
