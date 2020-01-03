@@ -1002,17 +1002,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"variables\": {\r\n  \t\"airportCode\" : {\r\n  \t\t\"value\" : \"BER\",\r\n  \t\t\"type\" : \"String\"\r\n  \t},\r\n    \"OpeningDate\" : {\r\n        \"value\" : \"2019-10-10T17:16:20.000+0800\",\r\n        \"type\": \"Date\"\r\n    },\r\n    \"budget\" : {\r\n      \"value\" : \"20000000\",\r\n      \"type\": \"Integer\"\r\n    }\r\n  },\r\n \"businessKey\" : \"bc2\"\r\n}"
+							"raw": "{\r\n  \"variables\": {\r\n    \"content\" : {\r\n        \"value\" : \"Hello REST\",\r\n        \"type\": \"String\"\r\n    },\r\n    \"anotherVariable\" : {\r\n      \"value\" : true,\r\n      \"type\": \"Boolean\"\r\n    }\r\n  },\r\n \"businessKey\" : \"myBusinessKey\"\r\n}"
 						},
 						"url": {
-							"raw": "{{rest_url}}/process-definition/key/BER/start",
+							"raw": "{{rest_url}}/process-definition/key/TwitterQAProcess/start",
 							"host": [
 								"{{rest_url}}"
 							],
 							"path": [
 								"process-definition",
 								"key",
-								"BER",
+								"TwitterQAProcess",
 								"start"
 							]
 						}
@@ -1299,7 +1299,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"messageName\" : \"QuestionCreated\",\r\n  \"businessKey\" : \"bc1\",\r\n  \"processVariables\" : {\r\n    \"question\" : {\"value\" : \"How to start a process instance?\", \"type\": \"String\", \r\n                    \"valueInfo\" : { \"transient\" : false } },\r\n    \"anotherVariable\" : {\"value\" : true, \"type\": \"Boolean\"}\r\n  },\r\n  \"resultEnabled\" : true,\r\n  \"variablesInResultEnabled\" : true\r\n}"
+							"raw": "{\r\n\t\"messageName\" : \"signatureMsg\",\r\n  \"processVariables\": {\r\n    \"signature\" : {\r\n        \"value\" : \"cancelled\",\r\n        \"type\": \"String\"\r\n    },\r\n    \"anotherVariable\" : {\r\n      \"value\" : true,\r\n      \"type\": \"Boolean\"\r\n    }\r\n  }\r\n}"
 						},
 						"url": {
 							"raw": "{{rest_url}}/message",
