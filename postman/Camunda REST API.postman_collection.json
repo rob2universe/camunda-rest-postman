@@ -1002,17 +1002,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"variables\": {\r\n    \"content\" : {\r\n        \"value\" : \"Hello REST\",\r\n        \"type\": \"String\"\r\n    },\r\n    \"anotherVariable\" : {\r\n      \"value\" : true,\r\n      \"type\": \"Boolean\"\r\n    }\r\n  },\r\n \"businessKey\" : \"myBusinessKey\"\r\n}"
+							"raw": "{\r\n  \"variables\": {\r\n    \"content\" : {\r\n        \"value\" : \"Hello TWEET\",\r\n        \"type\": \"String\"\r\n    },\r\n    \"duration\" : {\r\n      \"value\" : \"PT1M,\r\n      \"type\": \"String\"\r\n    }\r\n  },\r\n \"businessKey\" : \"myBusinessKey\"\r\n}"
 						},
 						"url": {
-							"raw": "{{rest_url}}/process-definition/key/TwitterQAProcess/start",
+							"raw": "{{rest_url}}/process-definition/key/TimerEventSubprocess/start",
 							"host": [
 								"{{rest_url}}"
 							],
 							"path": [
 								"process-definition",
 								"key",
-								"TwitterQAProcess",
+								"TimerEventSubprocess",
 								"start"
 							]
 						}
@@ -1189,17 +1189,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"variables\" : {\r\n    \"name\" : { \"value\" : \"Tic\", \"type\" : \"String\" },\r\n    \"timeOfDay\" : { \"value\" : \"Morning\", \"type\" : \"String\" }\r\n  }\r\n}\r\n"
+							"raw": "{\r\n  \"variables\" : {\r\n    \"weather\" : { \"value\" : \"Tic\", \"type\" : \"String\" },\r\n    \"accountBalance\" : { \"value\" : \"Morning\", \"type\" : \"String\" }\r\n  }\r\n}\r\n"
 						},
 						"url": {
-							"raw": "{{rest_url}}/decision-definition/key/decideOnBeverage/evaluate",
+							"raw": "{{rest_url}}/decision-definition/key/MoodDecision/evaluate",
 							"host": [
 								"{{rest_url}}"
 							],
 							"path": [
 								"decision-definition",
 								"key",
-								"decideOnBeverage",
+								"MoodDecision",
 								"evaluate"
 							]
 						},
@@ -2085,6 +2085,113 @@
 						"description": "https://docs.camunda.org/manual/latest/reference/rest/incident/get-query-count/"
 					},
 					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Case Definition",
+			"item": [
+				{
+					"name": "case-definition",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/case-definition",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"case-definition"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/case-definition/"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Case Execution",
+			"item": [
+				{
+					"name": "Get case-execution",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/case-definition",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"case-definition"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/case-execution/get/"
+					},
+					"response": []
+				},
+				{
+					"name": "manual start",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"variables\":\r\n    {\r\n      \"aVariable\" : { \"value\" : \"aStringValue\", \"type\": \"String\" },\r\n      \"anotherVariable\" : { \"value\" : true, \"type\": \"Boolean\", \"local\" : true }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{rest_url}}/case-execution/4d1fa21f-56fb-11ea-bc54-9c899b574756/manual-start",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"case-execution",
+								"4d1fa21f-56fb-11ea-bc54-9c899b574756",
+								"manual-start"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/case-execution/post-manual-start/"
+					},
+					"response": []
+				}
+			],
+			"description": "https://docs.camunda.org/manual/latest/reference/rest/case-execution/",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "068216e4-49a0-41a1-9082-b353c5b896cb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "11f3f506-4305-4236-be81-4c6f1a240b80",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			],
 			"protocolProfileBehavior": {}
