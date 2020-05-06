@@ -272,6 +272,48 @@
 					"response": []
 				},
 				{
+					"name": "Form-variables",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/task/162a2a8a-7ed4-11ea-ace9-9c899b574756/form-variables",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"task",
+								"162a2a8a-7ed4-11ea-ace9-9c899b574756",
+								"form-variables"
+							],
+							"query": [
+								{
+									"key": "processInstanceId",
+									"value": "b091183d-ed56-11e9-911d-9eb6d0894ce9",
+									"disabled": true
+								},
+								{
+									"key": "taskDefinitionKey",
+									"value": "CarpeDiem",
+									"disabled": true
+								},
+								{
+									"key": "processDefinitionId",
+									"value": "RestExample:6:7c2c462f-e8e2-11e9-bfce-9eb6d0894ce9",
+									"disabled": true
+								},
+								{
+									"key": "assignee",
+									"value": "demo",
+									"disabled": true
+								}
+							]
+						},
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/task/get-form-variables/"
+					},
+					"response": []
+				},
+				{
 					"name": "Count tasks for task definition",
 					"request": {
 						"method": "GET",
@@ -1002,17 +1044,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"variables\": {\r\n    \"content\" : {\r\n        \"value\" : \"Hello TWEET\",\r\n        \"type\": \"String\"\r\n    },\r\n    \"duration\" : {\r\n      \"value\" : \"PT1M,\r\n      \"type\": \"String\"\r\n    }\r\n  },\r\n \"businessKey\" : \"myBusinessKey\"\r\n}"
+							"raw": "{\r\n  \"variables\": {\r\n    \"age\" : {\r\n        \"value\" : \"25\",\r\n        \"type\": \"String\"\r\n    },\r\n        \"carManufacturer\" : {\r\n        \"value\" : \"VW\",\r\n        \"type\": \"String\"\r\n    },\r\n        \"carType\" : {\r\n        \"value\" : \"BMW\",\r\n        \"type\": \"String\"\r\n    }\r\n  },\r\n \"businessKey\" : \"myBusinessKey2\"\r\n}"
 						},
 						"url": {
-							"raw": "{{rest_url}}/process-definition/key/TimerEventSubprocess/start",
+							"raw": "{{rest_url}}/process-definition/key/InsuranceApplicationProcess/start",
 							"host": [
 								"{{rest_url}}"
 							],
 							"path": [
 								"process-definition",
 								"key",
-								"TimerEventSubprocess",
+								"InsuranceApplicationProcess",
 								"start"
 							]
 						}
@@ -1088,6 +1130,48 @@
 								"process-definition"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Rendered Start Form",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/process-definition/key/NewProductApprovalProcess/rendered-form",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"process-definition",
+								"key",
+								"NewProductApprovalProcess",
+								"rendered-form"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/process-definition/get-rendered-form/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Form Variables",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/process-definition/key/NewProductApprovalProcess/form-variables",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"process-definition",
+								"key",
+								"NewProductApprovalProcess",
+								"form-variables"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/process-definition/get-rendered-form/"
 					},
 					"response": []
 				},
@@ -2192,6 +2276,40 @@
 							""
 						]
 					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Metrics",
+			"item": [
+				{
+					"name": "metrics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/metrics?name=activity-instance-start&interval=86400",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"metrics"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "activity-instance-start"
+								},
+								{
+									"key": "interval",
+									"value": "86400"
+								}
+							]
+						},
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/history/process-instance/"
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
