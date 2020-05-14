@@ -2313,6 +2313,46 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Filter",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"resourceType\": \"Task\",\r\n    \"name\": \"businessStatus is pending\",\r\n    \"query\": {\r\n        \"processVariables\": [\r\n            {\r\n                \"name\": \"businessStatus\",\r\n                \"operator\": \"eq\",\r\n                \"value\": \"pending\"\r\n            }\r\n        ]\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{rest_url}}/filter/create",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"filter",
+								"create"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/history/process-instance/"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"protocolProfileBehavior": {}
