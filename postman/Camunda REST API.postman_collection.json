@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "657a7e3a-cab3-427b-b57f-c231ff7e52bb",
-		"name": "Camunda REST API",
+		"name": "Camunda REST API (Not Open API)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -365,6 +365,39 @@
 							]
 						},
 						"description": "https://docs.camunda.org/manual/latest/reference/rest/task/get-query-count/"
+					},
+					"response": []
+				},
+				{
+					"name": "List Tasks filtered by process variable",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"processInstanceBusinessKey\": \"1\",\r\n    \"taskVariables\":\r\n        [{\"name\": \"val\",\r\n        \"value\": \"2\",\r\n        \"operator\": \"eq\"\r\n        }]\r\n    }"
+						},
+						"url": {
+							"raw": "{{rest_url}}/task?processInstanceBusinessKey=1",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"task"
+							],
+							"query": [
+								{
+									"key": "processInstanceBusinessKey",
+									"value": "1"
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -1160,14 +1193,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{rest_url}}/process-definition/key/NewProductApprovalProcess/form-variables",
+							"raw": "{{rest_url}}/process-definition/key/ConsultantSelection/form-variables",
 							"host": [
 								"{{rest_url}}"
 							],
 							"path": [
 								"process-definition",
 								"key",
-								"NewProductApprovalProcess",
+								"ConsultantSelection",
 								"form-variables"
 							]
 						},
@@ -1193,6 +1226,26 @@
 									"key": "active",
 									"value": "true"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get diagram",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{rest_url}}/process-definition/key/OrderProcess/diagram",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"process-definition",
+								"key",
+								"OrderProcess",
+								"diagram"
 							]
 						}
 					},
@@ -1383,7 +1436,35 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"messageName\" : \"signatureMsg\",\r\n  \"processVariables\": {\r\n    \"signature\" : {\r\n        \"value\" : \"cancelled\",\r\n        \"type\": \"String\"\r\n    },\r\n    \"anotherVariable\" : {\r\n      \"value\" : true,\r\n      \"type\": \"Boolean\"\r\n    }\r\n  }\r\n}"
+							"raw": "{\r\n    \"businessKey\":\"113\",\r\n\t\"messageName\" : \"Message_OneMore\",\r\n  \"processVariables\": { \"var1\" : {\"value\" : \"1\", \"type\": \"string\"}, \"var2\": {\"value\" : \"[\\\"1\\\",\\\"2\\\",\\\"3\\\"]\", \"type\": \"Object\", \"valueInfo\" : { \"objectTypeName\": \"java.util.ArrayList\", \"serializationDataFormat\": \"application/json\" } } }\r\n}"
+						},
+						"url": {
+							"raw": "{{rest_url}}/message",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"message"
+							]
+						},
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/message/post-message/"
+					},
+					"response": []
+				},
+				{
+					"name": "Post Message (Correlate) Message_WithdrawTweet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"messageName\" : \"Message_WithdrawTweet\"\r\n}"
 						},
 						"url": {
 							"raw": "{{rest_url}}/message",
@@ -2348,6 +2429,52 @@
 							]
 						},
 						"description": "https://docs.camunda.org/manual/latest/reference/rest/history/process-instance/"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Variables",
+			"item": [
+				{
+					"name": "Get Variable",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"processInstanceBusinessKey\":\"bc1\",\r\n  \"finishedAfter\": \"2010-01-01T00:00:00.000+0200\",\r\n  \"finishedBefore\": \"2020-04-01T23:59:59.000+0200\",\r\n  \"executedActivityAfter\": \"2019-03-23T13:42:44.000+0200\",\r\n  \"variableNamesIgnoreCase\": \"true\",\r\n  \"variableValuesIgnoreCase\": \"false\",\r\n  \"sorting\":[\r\n    {\r\n      \"sortBy\": \"businessKey\",\r\n      \"sortOrder\": \"asc\"\r\n    },\r\n    {\r\n      \"sortBy\": \"startTime\",\r\n      \"sortOrder\": \"desc\"\r\n    }\r\n  ]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{rest_url}}/task/f86d24a1-fbeb-11ea-a8f2-9c899b574756/variables/val?deserializeValue=true",
+							"host": [
+								"{{rest_url}}"
+							],
+							"path": [
+								"task",
+								"f86d24a1-fbeb-11ea-a8f2-9c899b574756",
+								"variables",
+								"val"
+							],
+							"query": [
+								{
+									"key": "deserializeValue",
+									"value": "true"
+								}
+							]
+						},
+						"description": "https://docs.camunda.org/manual/latest/reference/rest/variable-instance/get/"
 					},
 					"response": []
 				}
